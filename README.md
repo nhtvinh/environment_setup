@@ -2,18 +2,10 @@
 For my working environment configuration
 
 # Copy enviroment setup
-cp ./environment_setup/.bashrc .
-cp ./environment_setup/.profile .
-cp ./environment_setup/.tmux.conf .
-cp ./environment_setup/.vimrc .
-
-cp -r ./environment_setup/.local .
-cp -r ./environment_setup/.config .
-cp -r ./environment_setup/.fonts .
-cp -r ./environment_setup/.tmux .
-cp -r ./environment_setup/.vim .
-
+./environment_setup/scripts/01_env_setup.sh
 # Install tools
-./environment_setup/scripts/vim.sh
-./environment_setup/scripts/powerline.sh
-./environment_setup/scripts/YouCompleteMe.sh
+./environment_setup/scripts/02_powerline.sh
+./environment_setup/scripts/03_tmux_2.0.sh
+./environment_setup/scripts/04_vim.sh
+./environment_setup/scripts/05_vim_plugin.sh
+./environment_setup/scripts/06b_vim_plugin_ycm_64bit/32bit.sh
