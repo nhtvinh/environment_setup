@@ -10,4 +10,5 @@ cp -r ./environment_setup/.config .
 cp -r ./environment_setup/.fonts .
 cp -r ./environment_setup/.tmux .
 cp -r ./environment_setup/.vim .
+cp -r ./environment_setup/.dir_colors .
 

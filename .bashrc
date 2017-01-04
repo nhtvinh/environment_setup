@@ -74,7 +74,8 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/.dir_colors && eval `dircolors ~/.dir_colors/dircolors`
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -115,6 +116,25 @@ vim()
     stty "$STTYOPTS"
 }
 
+cp_p()
+{
+   strace -q -ewrite cp -- "${1}" "${2}" 2>&1 \
+      | awk '{
+        count += $NF
+            if (count % 10 == 0) {
+               percent = count / total_size * 100
+               printf "%3d%% [", percent
+               for (i=0;i<=percent;i++)
+                  printf "="
+               printf ">"
+               for (i=percent;i<100;i++)
+                  printf " "
+               printf "]\r"
+            }
+         }
+         END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+}
+
 # Powerline config
 export TERM="screen-256color"
 
@@ -127,6 +147,7 @@ alias TFTP_ROOT='cd /tftpboot/vhtnguyen'
 alias cd..='cd ..'
 alias cd...='cd ../..'
 alias build_cscope='cscope -b -q -k -R'
+alias clean_cscope='rm cscope.*' 
 alias tmux='tmux -2'
 alias duf='sudo du -sk * | sort -nr | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
 
