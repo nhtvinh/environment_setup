@@ -9,3 +9,5 @@ make install
 cd $HOME/.tmux/plugins/
 git clone https://github.com/tmux-plugins/tpm
 
+# Install dependancy for plugin
+sudo apt-get install xclip
