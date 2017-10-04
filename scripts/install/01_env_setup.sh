@@ -1,14 +1,14 @@
 # copy configuration files
-cp ./environment_setup/.bashrc .
-cp ./environment_setup/.profile .
-cp ./environment_setup/.tmux.conf .
-cp ./environment_setup/.vimrc .
+cp ./environment_setup/.bashrc $HOME 
+cp ./environment_setup/.profile $HOME
+cp ./environment_setup/.tmux.conf $HOME
+cp ./environment_setup/.vimrc $HOME
 
 # copy folder setup
-cp -r ./environment_setup/.local .
-cp -r ./environment_setup/.config .
-cp -r ./environment_setup/.fonts .
-cp -r ./environment_setup/.tmux .
-cp -r ./environment_setup/.vim .
-cp -r ./environment_setup/.dir_colors .
+cp -r ./environment_setup/.local $HOME
+cp -r ./environment_setup/.config $HOME
+cp -r ./environment_setup/.fonts $HOME
+cp -r ./environment_setup/.tmux $HOME
+cp -r ./environment_setup/.vim $HOME
+cp -r ./environment_setup/.dir_colors $HOME
 
